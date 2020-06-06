@@ -2,6 +2,7 @@ package io.github.dvegasa.rutechmeetup.welcome
 
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Base64
@@ -9,6 +10,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import io.github.dvegasa.rutechmeetup.R
+import io.github.dvegasa.rutechmeetup.main.MainActivity
 import kotlinx.android.synthetic.main.activity_welcome.*
 import java.io.ByteArrayOutputStream
 import kotlin.random.Random
@@ -27,6 +29,7 @@ class WelcomeActivity : AppCompatActivity() {
     var name: String = ""
     var job: String = ""
     var photo: Bitmap? = null
+    var tags: List<Tag>? = null
 
     private val nsvpAdapter = NsvpAdapter(frags, supportFragmentManager)
 
@@ -45,7 +48,7 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     fun endRegistration() {
-        val bitmap: Bitmap = photo !!
+        val bitmap: Bitmap = photo ?: BitmapFactory.decodeResource(resources, R.drawable.ava_no_photo)
         val byteArrayOutputStream = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
         val byteArray: ByteArray = byteArrayOutputStream.toByteArray()
@@ -53,6 +56,9 @@ class WelcomeActivity : AppCompatActivity() {
         Log.d("ed__", "Base64:\n$encoded")
 
         val uid: String = "" + System.currentTimeMillis() + "" + Random.nextInt(100, 999)
+
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 
     fun nextPage() {
