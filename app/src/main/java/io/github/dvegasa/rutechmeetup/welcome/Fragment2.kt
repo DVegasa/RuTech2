@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 
 import io.github.dvegasa.rutechmeetup.R
+import kotlinx.android.synthetic.main.fragment_1.*
+import kotlinx.android.synthetic.main.fragment_2.*
 import kotlinx.android.synthetic.main.fragment_2.view.*
+import kotlinx.android.synthetic.main.fragment_2.view.etJob
 
 /**
  * A simple [Fragment] subclass.
@@ -21,6 +24,7 @@ class Fragment2 : Fragment() {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_2, container, false)
         v.btn2.setOnClickListener {
+            (activity as WelcomeActivity).job = etJob.text.toString()
             (activity as WelcomeActivity).nextPage()
         }
         return v

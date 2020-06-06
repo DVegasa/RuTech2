@@ -22,6 +22,7 @@ class Fragment1 : Fragment() {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_1, container, false)
         v.btn1.setOnClickListener {
+            (activity as WelcomeActivity).name = etName.text.toString()
             (activity as WelcomeActivity).nextPage()
         }
         return v
