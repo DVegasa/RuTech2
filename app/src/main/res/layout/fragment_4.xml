@@ -4,7 +4,9 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background">
+        android:background="@color/background"
+        android:focusable="true"
+        android:clickable="true">
 
     <TextView
             android:id="@+id/tvMeetup"
@@ -21,6 +23,32 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
+    <TextView
+            android:id="@+id/tvUploadPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/monb"
+            android:text="Загрузи свою\nфотографию"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            app:fontFamily="@font/monb"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvMeetup" />
+
+
+    <ImageView
+            android:id="@+id/ivAddPhoto"
+            android:layout_width="164dp"
+            android:layout_height="164dp"
+            android:src="@drawable/ic_add_photo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     <LinearLayout
@@ -67,26 +95,22 @@
 
     </LinearLayout>
 
-    <com.sanojpunchihewa.glowbutton.GlowButton
+    <Button
+            android:background="@drawable/bg_button"
             android:id="@+id/btn4"
-            android:text="Закончить"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="24dp"
+            android:fontFamily="@font/monb"
+            android:text="Пропустить"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
-            android:fontFamily="@font/monb"
-            app:fontFamily="@font/monb"
             android:textSize="17sp"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_margin="24dp"
 
-            app:buttonColor="#FFCC00"
-            app:unpressedGlowSize="8dp"
-            app:pressedGlowSize="3dp"
-            app:glowColor="#FFCC00"
-            app:cornerRadius="18dp"
-
+            app:fontFamily="@font/monb"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+
             app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
