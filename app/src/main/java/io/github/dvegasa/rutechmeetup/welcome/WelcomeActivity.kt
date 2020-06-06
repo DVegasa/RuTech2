@@ -1,6 +1,7 @@
 package io.github.dvegasa.rutechmeetup.welcome
 
 import android.content.Intent
+import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -34,6 +35,7 @@ class WelcomeActivity : AppCompatActivity() {
     private val nsvpAdapter = NsvpAdapter(frags, supportFragmentManager)
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
         initNsvp()
