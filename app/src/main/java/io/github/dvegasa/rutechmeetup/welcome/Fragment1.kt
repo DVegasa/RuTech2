@@ -1,6 +1,10 @@
 package io.github.dvegasa.rutechmeetup.welcome
 
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +25,15 @@ class Fragment1 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_1, container, false)
+
+        val span = SpannableString("Как тебя\nзовут?")
+        span.setSpan(
+            ForegroundColorSpan(Color.parseColor("#FFCC00")),
+            9, 14,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        v.tvWhatName.text = span
+
         v.btn1.setOnClickListener {
             (activity as WelcomeActivity).name = etName.text.toString()
             (activity as WelcomeActivity).nextPage()
