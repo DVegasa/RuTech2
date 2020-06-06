@@ -2,12 +2,17 @@ package io.github.dvegasa.rutechmeetup.welcome
 
 import android.content.Intent
 import android.graphics.Bitmap
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Base64
+import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import io.github.dvegasa.rutechmeetup.R
 import kotlinx.android.synthetic.main.activity_welcome.*
+import java.io.ByteArrayOutputStream
+import kotlin.random.Random
+
 
 class WelcomeActivity : AppCompatActivity() {
 
@@ -40,7 +45,14 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     fun endRegistration() {
+        val bitmap: Bitmap = photo !!
+        val byteArrayOutputStream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
+        val byteArray: ByteArray = byteArrayOutputStream.toByteArray()
+        val encoded: String = Base64.encodeToString(byteArray, Base64.DEFAULT)
+        Log.d("ed__", "Base64:\n$encoded")
 
+        val uid: String = "" + System.currentTimeMillis() + "" + Random.nextInt(100, 999)
     }
 
     fun nextPage() {
