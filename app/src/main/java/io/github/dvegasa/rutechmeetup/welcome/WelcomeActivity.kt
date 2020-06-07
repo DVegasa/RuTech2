@@ -41,6 +41,8 @@ class WelcomeActivity : AppCompatActivity() {
         initNsvp()
 
         btnConfirm.setOnClickListener {
+            btnConfirm.visibility = View.INVISIBLE
+            btnConfirm.isEnabled = false
             endRegistration()
         }
 
@@ -50,7 +52,8 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     fun endRegistration() {
-        val bitmap: Bitmap = photo ?: BitmapFactory.decodeResource(resources, R.drawable.ava_no_photo)
+        val bitmap: Bitmap =
+            photo ?: BitmapFactory.decodeResource(resources, R.drawable.ava_no_photo)
         val byteArrayOutputStream = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
         val byteArray: ByteArray = byteArrayOutputStream.toByteArray()

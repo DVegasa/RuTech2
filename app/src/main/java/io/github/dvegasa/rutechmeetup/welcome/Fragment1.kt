@@ -2,13 +2,17 @@ package io.github.dvegasa.rutechmeetup.welcome
 
 import android.graphics.Color
 import android.os.Bundle
+import android.text.Editable
 import android.text.Spannable
 import android.text.SpannableString
+import android.text.TextWatcher
 import android.text.style.ForegroundColorSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.core.widget.addTextChangedListener
 
 import io.github.dvegasa.rutechmeetup.R
 import kotlinx.android.synthetic.main.fragment_1.*
@@ -38,6 +42,7 @@ class Fragment1 : Fragment() {
             (activity as WelcomeActivity).name = etName.text.toString()
             (activity as WelcomeActivity).nextPage()
         }
+
         return v
     }
 

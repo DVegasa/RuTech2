@@ -110,7 +110,7 @@
             android:fontFamily="@font/monb"
             android:text="Далее"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="17sp"
             app:fontFamily="@font/monb"
             app:layout_constraintBottom_toBottomOf="parent"

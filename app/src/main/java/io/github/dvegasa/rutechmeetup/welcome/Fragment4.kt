@@ -40,6 +40,8 @@ class Fragment4 : Fragment() {
         v.tvUploadPhoto.text = span
 
         v.btn4.setOnClickListener {
+            v.btn4.visibility = View.INVISIBLE
+            v.btn4.isEnabled = false
             (activity as WelcomeActivity).endRegistration()
         }
         v.ivAddPhoto.setOnClickListener {
