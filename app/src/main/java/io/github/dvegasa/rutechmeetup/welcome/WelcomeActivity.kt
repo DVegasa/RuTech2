@@ -62,9 +62,15 @@ class WelcomeActivity : AppCompatActivity() {
 
         val uid: String = "" + System.currentTimeMillis() + "" + Random.nextInt(100, 999)
 
-        startActivity(Intent(this, MainActivity::class.java))
+        var checkedStrings: String = ""
+        for (tag in tags!!.filter {it.isChecked}) {
+            checkedStrings += tag.name + "\n"
+        }
+
+        startActivity(MainActivity.getIntent(this, name, job, checkedStrings, encoded))
         finish()
     }
+
 
     fun nextPage() {
         nsvp.currentItem++
