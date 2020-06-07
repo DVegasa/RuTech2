@@ -50,8 +50,14 @@ class MainActivity : AppCompatActivity() {
             val tags = extras.getString(ARG_TAGS)
             val ava_base64 = extras.getString(ARG_AVA)
         }
+        showDialog()
         writeToLocalStorage()
         initWebView()
+    }
+
+    private fun showDialog() {
+        val dialog = FaqDialog()
+        dialog.show(supportFragmentManager, "faq")
     }
 
     private fun initWebView() {
